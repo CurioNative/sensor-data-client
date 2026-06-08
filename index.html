@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gait Analysis Dashboard</title>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="panel">
+        <h2 style="margin-top: 0;">Gait Analysis - Live Telemetry</h2>
+
+        <div>
+            <input type="text" id="wsIp" value="192.168.4.1" placeholder="ESP32 IP Address">
+            <button id="connectBtn" onclick="connectWS()">Connect to ESP32</button>
+            <span id="status" style="margin-left: 12px; font-weight: bold; color: red;">Disconnected</span>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <button id="startBtn" onclick="startRecording()">▶ Start Recording</button>
+            <button id="stopBtn" onclick="stopRecording()" disabled>⏹ Stop & Save CSV</button>
+            <span id="recStatus" style="margin-left: 12px; font-weight: bold; color: #666;">Waiting...</span>
+        </div>
+
+        <div class="grid" id="checkbox-container"></div>
+    </div>
+
+    <div id="graph"></div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
